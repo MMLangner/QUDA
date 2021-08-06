@@ -7,7 +7,7 @@ This tool has been implemented and is being extended for the DFG funded Project
 The App is a Django-based webapp, that can be deployed on a server using e.g. gunicorn and 
 nginx in order to make it publicly available. It can also be used offline on a local computer.
 
-QUDA offers a UI for creating QUD trees and classifications. In provides functions for
+QUDA offers a UI for creating QUD trees and classifications. It provides functions for
 creating and deleting elements, shift in linear precedence, copy pasting and rebranching
 of subbranches, classification of foci, topic etc.
 
