@@ -1,5 +1,7 @@
 # QUDA
-webserver annotation tool for NL texts in the context of QUD Theory and informational element classification
+QUDA Question under Discussion Annotation Tool.
+
+QUDA is a webserver annotation tool for NL texts in the context of QUD Theory and informational element classification.
 
 This tool has been implemented and is being extended for the DFG funded Project 
 "Propositional and Non-at-issue Content in Text Generation: Exploring the QUD–Perspective".
@@ -15,7 +17,7 @@ The UI provides a window toggle, such that either one annotation, two annotation
 or an annotation and a separate txt file can be viewed.
 
 Export format is XML. The files are validated according to project internal annotation guidelines,
-which are adapted form Riester et al., 2019.
+which are adapted from Riester et al., 2019.
 
 The access rights are managed by an app admin, which may add credentials for new users.
 
@@ -28,6 +30,6 @@ file handles are deleted and data / annotation progress is exceptionally stored 
 These cookies expire after logout.
 
 
-Author;      Maurice Langner, M.A.
+Author:      Maurice Langner, M.A.
 Email:       Maurice.Langner@rub.de / langner@linguistics.rub.de
 affiliation: Ruhr-Universität Bochum
