@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE ROOT SYSTEM "qud2.dtd">
+
+
+<ROOT>
+<QUD string="Was ist mit dem Antrieb des Test-Beetles?">
+<QUD string="Aus welchen Komponenten besteht der Antrieb?">
+<RES><SEGMENT>Dabei</SEGMENT></RES>
+<F id="1"><SEGMENT>arbeiten </SEGMENT></F>
+<F id="2"><SEGMENT>der bekannte TSI-Benziner </SEGMENT></F>
+<QUD string="Wie viel Hubraum hat der Benzinmotor?">
+<F><SEGMENT>mit 1,4-Litern </SEGMENT></F>
+</QUD>
+<QUD string="Wie viel Leistung hat der Benzinmotor?">
+<F id="1"><SEGMENT>(110 kW/</SEGMENT></F>
+<F id="2"><SEGMENT>150 PS) </SEGMENT></F>
+</QUD>
+<RES><SEGMENT>und </SEGMENT></RES>
+<QUD string="Wie viel Leistung hat der Elektromotor?">
+<F><SEGMENT>ein 20 kW/</SEGMENT></F>
+<F><SEGMENT>27 PS starker </SEGMENT></F>
+</QUD>
+<F id="3"><SEGMENT>Elektromotor </SEGMENT></F>
+<F id="1"><SEGMENT>zusammen. </SEGMENT></F>
+</QUD>
+</ROOT>

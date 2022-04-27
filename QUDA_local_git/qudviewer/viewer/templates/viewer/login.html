@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'viewer/style.css' %}" />
+</head>
+
+<header>
+<h1 id="title">QUD / RST Viewer and Annotation Tool</h1>
+<title>QUD Viewer Tool</title>
+
+</header>
+  <div id="overlay" style="display:{{overlay}}", onclick="off()">
+    <div id="text"><h2>{{message}}</h2></div>
+  </div>
+  
+
+  <div id = "central">
+
+<h4>Login</h4>
+
+  <center>
+  <div class="wraplogin">
+<form action="{% url 'viewer:checklogin' %}" method="post">
+  
+  USR:<input class="logininput" name="usrname" autocomplete="off"> <br>
+  PWD:<input type="password" class="logininput" name="usrpasswd" autocomplete="off">
+  </div>
+  <button class="inputsubmitbutton loginbutton"></button>
+  {% csrf_token %}
+  
+</form>
+</center>
+
+    </div>
+
+
+    
+
+
+  <footer>
+  </footer>
+
+
+
+  <script>
+  
+ 
+  
+    function off() {
+      document.getElementById("overlay").style.display = "none";
+    }
+    </script>
+  <body>
+
+
+
+
+  

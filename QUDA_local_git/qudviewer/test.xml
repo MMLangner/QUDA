@@ -1,0 +1,1 @@
+<ROOT><QUD string="First QUD?"><UNIT>first discourse unit</UNIT><QUD string="FIrst Sub QUD" /><UNIT>second discourse unit<F>second</F><AT>discourse unit</AT></UNIT><QUD string="Second sub qud"><QUD string="embedded qud" /></QUD></QUD></ROOT>

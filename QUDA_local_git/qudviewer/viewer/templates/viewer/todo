@@ -1,0 +1,8 @@
+Menu functionality
+
+general: Indizes, (Q1.1. ..) 
+
+QUDs: delete, add (SUBQUD, sisQUD above anf below, Join QUD to other QUD by ID)
+      
+      
+ Segment: delete, adjoin to QUD according to ID, classify

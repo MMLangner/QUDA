@@ -1,0 +1,51 @@
+{% autoescape off %}
+<div class="embed">
+    <div class="qudmenu">
+        <form action="/action_page.php">
+          <button class="menubutton addQUD" style="vertical-align:middle"><span>add QUD</span></button> 
+          <button class="menubutton removeQUD" style="vertical-align:middle"><span>remove</span></button>   
+          <div class="block"></div>
+          <button class="menubutton addSeg" style="vertical-align:middle"><span>addSeg</span></button>
+          <button class="menubutton pushdown" style="vertical-align:middle"><span><-</span></button>
+          <button class="menubutton pushup" style="vertical-align:middle"><span>-></span></button>
+        </form>
+        <div class="dropdown">
+          <button onclick="unfold('{{dropidn}}')" class="dropbtn">Dropdown</button>
+          <div id="{{dropidn}}" class="dropdown-content">
+            <option value="Q1">Q1.1</option>
+            <option value="Q11">Q1.1.1</option>
+            <option value="Q111">Q1.1.1.1</option>
+          </div>
+        </div>
+      </div>  
+
+
+
+  <form action="test.html">
+      <textarea class="QUD" cols="30" rows="2" id="{{idn}}" name="{{name}}">{{qud}}</textarea>
+      </form>
+
+
+      {{deepembed}} 
+      <script>
+       /
+        function unfold(dropid) {
+          document.getElementById(dropid).classList.toggle("show");
+        }
+        
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+      
+</div>    
+{% endautoescape %}

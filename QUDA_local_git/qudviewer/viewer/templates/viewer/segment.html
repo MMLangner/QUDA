@@ -1,0 +1,161 @@
+{% autoescape off %}
+<div class="embed colcontent">
+  {% if COL != "" %}
+  <div class="wrapSEG {{COL}}" id="{{idn}}">  
+  {% else %}
+  <div class="wrapSEG DEFAULT" id="{{idn}}">
+  {% endif %}
+    <div class="segmentmenu">
+
+    
+    {% if wraplabel != "" %}
+    <div class="wrapLabel">{{wraplabel}}</div>
+    {% else %}
+    <div class="wrapLabel" style="color:#fd5e02;">&#x26A0;</div>
+    {% endif %}
+    
+    
+       <form action="{% url 'viewer:addSubSegment' %}" method="post">
+        {% csrf_token %}
+          <button name="addSegment" value="{{idn}}" class="menubutton addSeg" style="vertical-align:middle"><span>SEG</span></button>
+      </form>
+      
+      <!--
+      <form action="{% url 'viewer:removeSegment' %}" method="post">
+          {% csrf_token %}
+          <button name="removeSegment" id="{{idn}}" value="{{idn}}" class="menubutton removeSEG" style="vertical-align:middle"><span>DEL</span></button>   
+        </form>-->
+        
+        
+        <button class="menubutton removeSEG" onclick="showModal('{{idn_del}}')">DEL</button>
+
+        <div id="{{idn_del}}" class="modal">
+          <h5>Do you really want to delete this SEGMENT?</h5>
+          <span onclick="hideModal('{{idn_del}}')" class="close" title="Close Modal">&times;</span>
+          <form action="{% url 'viewer:removeSegment' %}" method="post">
+            {% csrf_token %}
+            
+            
+            <button name="removeSegment" value="{{idn}}" class="deletebutton" style="vertical-align:middle"><span>DELETE</span></button>
+          </form>
+        </div> 
+      
+      
+      
+      
+        <form action="{% url 'viewer:moveUp' %}" method="post">
+          {% csrf_token %}
+          <button name="pushUp" value="{{idn}}" class="menubutton pushupSeg" style="vertical-align:middle"><span>up</span></button>
+        </form> 
+        <form action="{% url 'viewer:moveDown' %}" method="post">
+          {% csrf_token %}
+          <button name="pushDown" value="{{idn}}" class="menubutton pushdown" style="vertical-align:middle"><span>down</span></button>
+        </form>
+
+
+
+        {% if menutype == "discourse" %}
+        <form action="{% url 'viewer:associateSegment' %}" method="post">
+          {% csrf_token %}
+          <input type="text" class="clearinput" id="{{idn}}" name="associate" value="">
+          <button name="associatebutton" value="{{idn}}" class="menubutton subSEG" style="vertical-align:middle"><span>#</span></button>
+        </form>
+        {% else %}
+          <div></div>
+        {% endif %}
+
+       <!-- <form action="{% url 'viewer:saveSegID' %}" method="post">
+          {% csrf_token %}
+          <input type="text" class="clearinput idnum" name="saveSegIDInput" value="">
+          <button name="saveSegID" value="{{idn}}" class="menubutton saveSegID" style="vertical-align:middle"><span>&#128190;</span></button>
+        </form>-->
+        
+        {% if wrapid != "" %}
+        <div onclick="copy(this)" class="wrapID">{{wrapid}}</div>
+        {% else %}
+        <div></div>
+        {% endif %}
+        
+    
+        {% if menutype == "segment" %}
+        <form action="{% url 'viewer:classify' %}" method="post">
+          <select name="classify">
+            <option value="">None</option>
+            <option value="F">F</option>
+            <option value="DT">DT</option>
+            <option value="CON">CON</option>
+            <option value="CT">CT</option>
+            <option value="AT">AT</option>
+            <option value="NAI">NAI</option>
+            <option value="RES">RES</option>
+            <option value="CMT">CMT</option>
+            <option value="OVERT">OVERT</option>
+          </select>
+          {% csrf_token %}
+          <button name="classifybutton" value="{{idn}}" class="menubutton classify" style="vertical-align:middle"><span>CLS</span></button>
+          </form> 
+        {% else %}
+        <form action="{% url 'viewer:classify' %}" method="post">
+          <select name="classify">
+            <option value="UNIT">UNIT</option>
+            <option value="OVERT">OVERT</option>
+          </select>
+          {% csrf_token %}
+          <button name="classifybutton" value="{{idn}}" class="menubutton classify" style="vertical-align:middle"><span>CLS</span></button>
+          </form> 
+        {% endif %}
+        
+        
+
+
+
+          
+    </div>     
+  
+      <form id="{{idn}}" onkeypress="submitTextAreaOnKeyPress('{{idn}}')" action="{% url 'viewer:submitArea' %}" method="post">
+          <textarea name="inputtext" class="SEGMENT" cols="40" rows="1">{{segment}}</textarea>
+          {% csrf_token %}
+          <input type="hidden" name="submitArea" value="{{idn}}" class="inputsubmitbutton submitSEGMENTText" style="vertical-align:middle"><span></span></input> 
+        </form>
+      
+      
+      {{deepembedseg}}
+      
+
+      
+    </div>
+      </div>
+{% endautoescape %}
+
+
+
+<!--<div class="segmentmenu">
+        
+        <form action="/action_page.php">
+          <button class="menubutton removeQUD" style="vertical-align:middle"><span>DEL</span></button>   
+        </form>  
+        <form action="/action_page.php">
+          <button class="menubutton pushdown" style="vertical-align:middle"><span><-</span></button>
+        </form>
+          <form action="/action_page.php">
+          <button class="menubutton pushup" style="vertical-align:middle"><span>-></span></button>
+        </form> 
+          <div class="block"></div>
+          <form action="/action_page.php">
+          <input type="text" id="lname" name="lname" value="QUD">
+          <button class="menubutton sub" style="vertical-align:middle"><span>#</span></button>
+        </form>
+        <form>
+          <div class="block"></div>
+          <select name="classif" id="classif">
+            <option value="volvo">F</option>
+            <option value="saab">T</option>
+            <option value="mercedes">BG</option>
+            <option value="audi">NAI</option>
+          </select>
+          <button class="menubutton classify" style="vertical-align:middle"><span>CLS</span></button>
+          </form> 
+          <div class="block"></div>
+          <div class="wrapLabel">{{wraplabel}}</div>
+    </div>     
+  -->
